@@ -1,0 +1,14 @@
+select d.department_id,d.location_id,l.city,count(*) as employee_count
+from locations l,departments d,employees e
+where d.location_id = l.location_id
+and d.department_id = e.department_id
+group by d.department_id,l.location_id
+having count(*)>30
+
+
+
+
+
+
+
+       

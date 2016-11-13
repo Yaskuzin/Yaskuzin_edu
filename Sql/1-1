@@ -1,0 +1,8 @@
+select m.first_name,m.last_name,count(*) as subordinates_count
+from employees e,employees m
+where e.manager_id = m.employee_id
+group by m.first_name,m.last_name
+having count(*)>5
+
+
+       
