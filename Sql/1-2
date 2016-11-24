@@ -1,4 +1,4 @@
-select e.department_id,d.department_name,avg(e.salary) as average_salary,count(*) as employee_count
+select e.department_id,d.department_name,round(avg(e.salary),2) as average_salary,count(*) as employee_count
 from employees e,departments d
 where e.department_id=d.department_id
 group by e.department_id,d.department_name
