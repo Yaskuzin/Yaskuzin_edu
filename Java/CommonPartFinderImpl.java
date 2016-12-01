@@ -35,48 +35,40 @@ public class CommonPartFinderImpl implements CommonPartFinder{
     @Override
     public String getMaxLengthCommonPart(String[] strings) {
         int length = strings.length;
-        int key=1;
         if (length == 0){
             return null;
         }
+        String temp = null;
         String commonPart = strings[0];
-        String maxCommonPart ="";
-
-           // commonPart = getCommonPart(commonPart,strings[i]);
-            for (int i=0;i<strings[0].length();i++){
-                for (int j=i+1;j<strings[0].length()+1;j++){
-                        commonPart = strings[0].substring(i, j);
-                    for (int l = 1;l<length;l++) {
-                        if (!strings[l].contains(commonPart)){
-                            key = 0;
-                        }
+            for (int i = 1; i<length; i++){
+                temp = commonPart;
+            commonPart = getCommonPart(commonPart,strings[i]);
+                for (int j=i+1;j<length;j++){
+                    if (!strings[j].contains(commonPart)){
+                        commonPart =temp;
+                        break;
                     }
-                    if (key ==1 && commonPart.length()>maxCommonPart.length() ){
-                        maxCommonPart = commonPart;
-                    }
-                    key=1;
                 }
-
-
             }
-        return maxCommonPart ;
+        return  commonPart;
     }
 
- /*   public String getCommonPart(String string1,String string2){
+   public String getCommonPart(String string1,String string2){
         String commonPart = null;
         String maxCommonPart = "";
-
         for (int i=0;i<string1.length();i++){
             for (int j=i+1;j<string1.length()+1;j++){
                 commonPart = string1.substring(i,j);
                 if (string2.contains(commonPart) && commonPart.length()>maxCommonPart.length()){
                     maxCommonPart = commonPart;
                 }
+
             }
 
 
         }
         return maxCommonPart;
     }
-    */
+
 }
+
