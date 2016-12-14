@@ -1,0 +1,5 @@
+INSERT INTO employees(
+            employee_id, first_name, last_name, email, phone_number, hire_date, 
+            job_id, salary, commission_pct, manager_id, department_id)
+    VALUES (nextval('employees_employee_id_seq'), 'Dmitry', 'Yaskuzin', 'diman-y96@mail.ru', '9775193665', TO_DATE('14-DEC-2016', 'dd-MON-yyyy'), 
+            'IT_PROG', round(random()*2000+1000), '0.15', (select manager_id from departments where department_id = 60), '60');

@@ -1,0 +1,4 @@
+select  employee_id,(extract(year from current_date) - extract(year from hire_date))*12*salary+
+(extract(month from current_date) - extract(month from hire_date))*salary as whole_sum
+from employees
+order by whole_sum desc

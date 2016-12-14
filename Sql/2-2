@@ -1,0 +1,6 @@
+UPDATE employees
+   SET salary=2*salary, 
+   manager_id=
+   ( select m.manager_id from employees e, employees m 
+where e.manager_id = m.employee_id AND e.last_name = 'Yaskuzin' ) 
+ WHERE last_name = 'Yaskuzin';
